@@ -12,7 +12,7 @@ const DashboardLayout = ({ children }: PropsWithChildren) => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
       </>
-      <div className="relative flex h-screen">
+      <div className="relative flex h-screen bg-neutral-700">
         <Sidebar />
         {/* Content */}
         {children}
