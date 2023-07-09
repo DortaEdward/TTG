@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import Chart, { ChartTypeRegistry, ChartType } from 'chart.js/auto'
+import Chart from 'chart.js/auto'
 
 type Props = {
   labels: string[];
@@ -16,6 +16,8 @@ const PieChart = ({ labels, data, backgroundColor }: Props) => {
         new Chart(ctx, {
           options: {
             normalized: true,
+            responsive: true,
+            resizeDelay:200,
           },
           type: 'pie',
           data: {
@@ -33,9 +35,11 @@ const PieChart = ({ labels, data, backgroundColor }: Props) => {
     return () => {
       chartRef.current = null;
     }
-  }, []);
+  }, [backgroundColor, data, labels]);
 
-  return <canvas ref={chartRef} />;
+  return <div className='w-[350px] sm:w-[500px]'>
+    <canvas ref={chartRef} />
+  </div>
 };
 
 export default PieChart;
